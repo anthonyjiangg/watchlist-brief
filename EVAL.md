@@ -47,6 +47,8 @@ that earlier close.
 
 | NVDA (typed percentage check, REGRADE after fix) | BRIEF.companies.NVDA.news[0].why now reads "Nvidia fell sharply on Thursday as AI and chip stocks sold off on doubts about the pace of the data center buildout after Democrats won Congress." No percentage anywhere in BRIEF (lines 183-273 of index.html re-read). CHANGELOG percentages unchanged and still match. | n/a (original Fail above kept) | Pass |
 
+| CHANGELOG percentages (REGRADE, second 2026-11-06 refresh) | First entry (line 279) restates closes only, no new percentage. Second entry still quotes NVDA -7.6%, JPM -1.8%, ACN -0.2%, C -3.3%, LLY -4.0%. | Recomputed from verified closes: -7.63%, -1.79%, -0.17%, -3.29%, -4.04%. All within 0.3 points. BRIEF still has no typed percentage. | Pass (5 of 5) |
+
 Note: the typed-percentage row is a strict reading of the instruction. It is a quoted daily move, not a weekly change, so the owner may decide the rule does not cover it. No other percentage appears in BRIEF. CHANGELOG percentages all match.
 
 ## C. News grounding (one row per news item, three per ticker)
@@ -81,6 +83,9 @@ relative to the refresh date.
 | JPM | US CPI report for October, 8:30 AM ET (market-wide) | 2026-11-10 | BLS own schedule shows Nov 10, 2026, 8:30 AM. Brief cites a third-party calendar but the date is correct. Third-party page does not label it estimated. | Pass | https://www.bls.gov/schedule/news_release/cpi.htm ; https://thriveinmarkets.com/calendar/dates/cpi-2026/ |
 | LLY | Ex-dividend date, $1.73 (record Nov 13, payable Dec 10) | 2026-11-13 | Only found on aggregators: StockAnalysis shows Nov 13 ex/record, Dec 10 pay, not labeled estimated. A web search snippet says dividendhistory.org labels the Nov 13 ex-date as unconfirmed/estimated. Lilly's IR page (investor.lilly.com) returned 403, so I could not open it. Not confirmed by company IR page. | Fail | https://stockanalysis.com/stocks/lly/dividend/ |
 
+| NVDA (REGRADE, second 2026-11-06 refresh) | Q3 fiscal 2027 results and conference call, 5 PM ET | 2026-11-17 | NVIDIA IR press release dated Oct 28, 2026 "NVIDIA Sets Conference Call for Third Quarter Financial Results": call Tuesday Nov 17, 2 PM PT (5 PM ET), "will host", no estimated/expected wording. Results announced "at approximately 1:20 PM PT" (about 4:20 PM ET), so the brief's "results and call at 5 PM ET" is slightly loose on the results time; the call date and time are right. Date is after refresh date. Original Fail above kept. | Pass | https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx |
+| LLY (REGRADE, second 2026-11-06 refresh) | Ex-dividend date, $1.73 (record Nov 13, payable Dec 10), now worded "unconfirmed, from StockAnalysis only, Lilly's investor relations page could not be opened" | 2026-11-13 | Retried Lilly IR (https://investor.lilly.com/stock-information/dividends): HTTP 403 again, so still not confirmed by company IR page. Brief no longer overstates certainty and is honest about the gap, but the rule needs the date on the IR page. Aggregator (StockAnalysis) does not label it estimated. Original Fail above kept. | Fail | https://stockanalysis.com/stocks/lly/dividend/ |
+
 Note: the LLY Fail is partly "could not verify" because the Lilly IR site blocked me (403). A search snippet attributed the $1.73, Nov 13 record and Dec 10 payable dates to Lilly's own Oct 26 release, but I did not open that page, so it is not counted.
 
 ## E. Omissions
@@ -113,7 +118,8 @@ news list in the data". Write the test, run it, record the result.
 | B. Weekly change (after regrade, 7 rows incl. original Fail) | 6 | 7 | 86% (all 6 current checks pass) |
 | C. News (original) | 5 | 6 | 83% |
 | C. News (after regrade, 7 rows incl. original C Fail) | 6 | 7 | 86% (C date-edge Fail still stands) |
-| D. Calendar | 2 | 4 | 50% |
+| D. Calendar (original) | 2 | 4 | 50% |
+| D. Calendar (after second refresh regrade, 6 rows incl. original Fails) | 3 | 6 | 50% (NVDA earnings now Pass; LLY ex-dividend still Fail; original NVDA Fail kept) |
 | E. Omissions (fails only) | 0 | | |
 | F. Your own | | | |
 | **Overall** | | | |

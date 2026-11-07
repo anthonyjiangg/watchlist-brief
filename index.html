@@ -183,7 +183,7 @@ const WATCHLIST = {
 const BRIEF = {
   mode: "live",
   asOf: "2026-11-06",
-  retrievedAt: "2026-11-06T20:00:00-05:00",
+  retrievedAt: "2026-11-06T22:00:00-05:00",
   priceType: "close",
   companies: {
     NVDA: {
@@ -201,7 +201,7 @@ const BRIEF = {
         { date: "2026-11-05", headline: "Nvidia's Huang is asked to brief Congress on reported Chinese spy relationship", source: "CNBC", url: "https://www.cnbc.com/2026/11/05/nvidia-jensen-huang-china-spy-congress.html", why: "House Republicans raised national security concerns about China and asked the CEO for a closed-door briefing, adding regulatory risk." }
       ],
       upcoming: [
-        { date: "2026-11-17", event: "Q3 fiscal 2027 earnings report (date from stockanalysis.com and CNBC; not confirmed on NVIDIA's IR page)", source: "CNBC", url: "https://www.cnbc.com/2026/11/05/nvidia-jensen-huang-china-spy-congress.html" },
+        { date: "2026-11-17", event: "Q3 fiscal 2027 results and conference call, 5 PM ET (confirmed on NVIDIA's investor relations page)", source: "NVIDIA Investor Relations", url: "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx" },
         { date: "2026-11-18", event: "Proposed closed-door House briefing with Jensen Huang (requested by lawmakers; Nvidia has not confirmed he will attend)", source: "CNBC", url: "https://www.cnbc.com/2026/11/05/nvidia-jensen-huang-china-spy-congress.html" }
       ]
     },
@@ -266,13 +266,24 @@ const BRIEF = {
         { date: "2026-11-06", headline: "Lilly and Hims & Hers expand access to FDA-approved Lilly medicines", source: "PR Newswire", url: "https://www.prnewswire.com/news-releases/lilly-and-hims--hers-expand-access-to-fda-approved-lilly-medicines-302931979.html", why: "Adds a telehealth channel for Zepbound and Foundayo at self-pay prices, widening patient access." }
       ],
       upcoming: [
-        { date: "2026-11-13", event: "Ex-dividend date, $1.73 per share (record Nov 13, payable Dec 10)", source: "StockAnalysis", url: "https://stockanalysis.com/stocks/lly/dividend/" }
+        { date: "2026-11-13", event: "Ex-dividend date, $1.73 per share (record Nov 13, payable Dec 10); unconfirmed, from StockAnalysis only, Lilly's investor relations page could not be opened", source: "StockAnalysis", url: "https://stockanalysis.com/stocks/lly/dividend/" }
       ]
     }
   }
 };
 
 const CHANGELOG = [
+  {
+    date: "2026-11-06",
+    summary: [
+      "Second refresh on 2026-11-06. All five tickers re-checked on stockanalysis.com: closes for Nov 2 to Nov 6 are unchanged from the first refresh, so the first and last prices in each ticker's line above still apply (NVDA 202.06 to 186.64, JPM 340.58 to 334.49, ACN 260.94 to 260.50, C 123.10 to 119.05, LLY 1410.99 to 1354.00).",
+      "Changed: NVDA Q3 fiscal 2027 earnings on Nov 17 is now confirmed on NVIDIA's investor relations page (results and call at 5 PM ET); source switched from CNBC to NVIDIA IR.",
+      "Changed: retrievedAt moved to a later time. No other price, news or calendar item changed.",
+      "Missing: no Citi news item dated Oct 31 to Nov 6 with a URL could be opened. A CNBC Television interview with CEO Jane Fraser (about Nov 6) appears on stockanalysis.com but no article URL was found; a CNBC Fed lending survey article (Nov 5) does not mention Citi, so it was not used. The Oct 30 analyst target item is kept.",
+      "Missing: LLY ex-dividend date Nov 13 could not be confirmed on Lilly's investor relations page (HTTP 403); the event text now says it is unconfirmed. StockAnalysis lists ex-dividend and record date both as Nov 13."
+    ],
+    note: "Verify by hand: the LLY ex-dividend date on Lilly's own IR site, and a Citi news item for Oct 31 to Nov 6 (the current one is dated Oct 30, outside the seven-day window). retrievedAt (10 PM ET) is approximate because the agent has no clock. CPI Nov 10 still comes from a third-party calendar and was not re-checked. Closes are from stockanalysis.com, a secondary source. News items from the first refresh were not re-opened this run."
+  },
   {
     date: "2026-11-06",
     summary: [
