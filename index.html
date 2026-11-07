@@ -92,6 +92,7 @@ section { margin-bottom: 2rem; }
 .cal .d { font-weight: 600; }
 .cal .t { font-weight: 700; color: var(--navy); }
 .cal .src { color: var(--muted); font-size: .85rem; }
+.tape .sym a, .items .h a, .items .src a, .cal .src a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* Changelog */
 .log { list-style: none; margin: 0; padding: 0; }
@@ -167,14 +168,14 @@ footer p { margin: .2rem 0; }
 /* ===== DATA. The refresh-brief agent edits BRIEF and CHANGELOG only. ===== */
 
 const WATCHLIST = {
-  owner: "Your Name",
+  owner: "Anthony Jiang",
   club: "SIBC",
   repo: "",
   tickers: [
     { symbol: "NVDA", name: "NVIDIA", exchange: "NASDAQ", why: "The AI capex cycle in one ticker. If this moves, the whole list moves." },
     { symbol: "JPM",  name: "JPMorgan Chase", exchange: "NYSE", why: "The bank every banking recruit should be able to talk about for five minutes." },
     { symbol: "ACN",  name: "Accenture", exchange: "NYSE", why: "The consulting bellwether. Its bookings tell you how clients feel about spending." },
-    { symbol: "DE",   name: "Deere", exchange: "NYSE", why: "Midwest industrial. Farm income, tariffs, and rates all show up here." },
+    { symbol: "C",    name: "Citigroup", exchange: "NYSE", why: "A global bank with a large investment banking and markets business. A second big-bank read alongside JPM." },
     { symbol: "LLY",  name: "Eli Lilly", exchange: "NYSE", why: "Indiana's largest company and the GLP-1 story." }
   ]
 };
