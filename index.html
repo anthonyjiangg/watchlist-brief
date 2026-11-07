@@ -92,7 +92,7 @@ section { margin-bottom: 2rem; }
 .cal .d { font-weight: 600; }
 .cal .t { font-weight: 700; color: var(--navy); }
 .cal .src { color: var(--muted); font-size: .85rem; }
-.tape .sym a, .items .h a, .items .src a, .cal .src a { display: inline-flex; align-items: center; min-height: 44px; }
+.tape .sym a, .items .h a, .items .src a, .items a.src, .cal .src a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* Changelog */
 .log { list-style: none; margin: 0; padding: 0; }
@@ -181,94 +181,113 @@ const WATCHLIST = {
 };
 
 const BRIEF = {
-  mode: "sample",
-  asOf: "2026-10-16",
-  retrievedAt: "2026-10-16T16:30:00-04:00",
+  mode: "live",
+  asOf: "2026-11-06",
+  retrievedAt: "2026-11-06T20:00:00-05:00",
   priceType: "close",
   companies: {
     NVDA: {
       closes: [
-        { date: "2026-10-12", close: 100.00 },
-        { date: "2026-10-13", close: 101.40 },
-        { date: "2026-10-14", close: 99.80 },
-        { date: "2026-10-15", close: 103.10 },
-        { date: "2026-10-16", close: 104.20 }
+        { date: "2026-11-02", close: 202.06 },
+        { date: "2026-11-03", close: 206.69 },
+        { date: "2026-11-04", close: 200.13 },
+        { date: "2026-11-05", close: 181.60 },
+        { date: "2026-11-06", close: 186.64 }
       ],
       latest: null,
-      priceSource: "https://example.com/sample",
+      priceSource: "https://stockanalysis.com/stocks/nvda/history/",
       news: [
-        { date: "2026-10-15", headline: "Sample headline. Run the refresh-brief agent to replace this.", source: "Sample", url: "https://example.com/sample", why: "Sample. The agent writes one plain sentence here on why the item matters to the stock." }
+        { date: "2026-11-06", headline: "AI stocks hammered by midterm shock as data center buildout becomes a 'war of attrition'", source: "CNBC", url: "https://www.cnbc.com/2026/11/06/ai-data-center-midterms-selloff.html", why: "Nvidia fell sharply on Thursday as AI and chip stocks sold off on doubts about the pace of the data center buildout after Democrats won Congress." },
+        { date: "2026-11-05", headline: "Nvidia's Huang is asked to brief Congress on reported Chinese spy relationship", source: "CNBC", url: "https://www.cnbc.com/2026/11/05/nvidia-jensen-huang-china-spy-congress.html", why: "House Republicans raised national security concerns about China and asked the CEO for a closed-door briefing, adding regulatory risk." }
       ],
       upcoming: [
-        { date: "2026-10-28", event: "Sample event (replace by refreshing)", source: "Sample", url: "https://example.com/sample" }
+        { date: "2026-11-17", event: "Q3 fiscal 2027 earnings report (date from stockanalysis.com and CNBC; not confirmed on NVIDIA's IR page)", source: "CNBC", url: "https://www.cnbc.com/2026/11/05/nvidia-jensen-huang-china-spy-congress.html" },
+        { date: "2026-11-18", event: "Proposed closed-door House briefing with Jensen Huang (requested by lawmakers; Nvidia has not confirmed he will attend)", source: "CNBC", url: "https://www.cnbc.com/2026/11/05/nvidia-jensen-huang-china-spy-congress.html" }
       ]
     },
     JPM: {
       closes: [
-        { date: "2026-10-12", close: 100.00 },
-        { date: "2026-10-13", close: 99.30 },
-        { date: "2026-10-14", close: 98.90 },
-        { date: "2026-10-15", close: 98.20 },
-        { date: "2026-10-16", close: 97.60 }
+        { date: "2026-11-02", close: 340.58 },
+        { date: "2026-11-03", close: 337.98 },
+        { date: "2026-11-04", close: 352.11 },
+        { date: "2026-11-05", close: 337.34 },
+        { date: "2026-11-06", close: 334.49 }
       ],
       latest: null,
-      priceSource: "https://example.com/sample",
+      priceSource: "https://stockanalysis.com/stocks/jpm/history/",
       news: [
-        { date: "2026-10-14", headline: "Sample headline. Run the refresh-brief agent to replace this.", source: "Sample", url: "https://example.com/sample", why: "Sample." }
+        { date: "2026-11-05", headline: "Democrats to probe JPMorgan's relationship with Epstein when they take Senate control", source: "CNBC", url: "https://www.cnbc.com/2026/11/05/jpmorgan-epstein-democrats-erdoes-midterm-election.html", why: "A planned Senate Finance Committee probe, not yet formally announced, adds headline and reputational risk for the bank." }
       ],
-      upcoming: []
+      upcoming: [
+        { date: "2026-11-10", event: "Market-wide: US CPI report for October, 8:30 AM ET (date from a third-party calendar, not BLS)", source: "Thrive in Markets", url: "https://thriveinmarkets.com/calendar/dates/cpi-2026/" }
+      ]
     },
     ACN: {
       closes: [
-        { date: "2026-10-12", close: 100.00 },
-        { date: "2026-10-13", close: 100.20 },
-        { date: "2026-10-14", close: 99.90 },
-        { date: "2026-10-15", close: 100.10 },
-        { date: "2026-10-16", close: 100.05 }
+        { date: "2026-11-02", close: 260.94 },
+        { date: "2026-11-03", close: 254.56 },
+        { date: "2026-11-04", close: 264.27 },
+        { date: "2026-11-05", close: 265.16 },
+        { date: "2026-11-06", close: 260.50 }
       ],
       latest: null,
-      priceSource: "https://example.com/sample",
-      news: [],
-      upcoming: [
-        { date: "2026-10-22", event: "Sample event (replace by refreshing)", source: "Sample", url: "https://example.com/sample" }
-      ]
-    },
-    DE: {
-      closes: [
-        { date: "2026-10-12", close: 100.00 },
-        { date: "2026-10-13", close: 102.50 },
-        { date: "2026-10-14", close: 101.80 },
-        { date: "2026-10-15", close: 103.90 },
-        { date: "2026-10-16", close: 102.70 }
-      ],
-      latest: null,
-      priceSource: "https://example.com/sample",
+      priceSource: "https://stockanalysis.com/stocks/acn/history/",
       news: [
-        { date: "2026-10-13", headline: "Sample headline. Run the refresh-brief agent to replace this.", source: "Sample", url: "https://example.com/sample", why: "Sample." }
+        { date: "2026-11-04", headline: "Accenture accused of publishing AI paper rife with false citations, FT reports", source: "TheFly via TipRanks", url: "https://www.tipranks.com/news/the-fly/accenture-accused-of-publishing-ai-paper-rife-with-false-citations-ft-reports-thefly-news", why: "A reputational hit for a firm that sells AI advice; Accenture denies AI was involved and says it will fix the report." }
+      ],
+      upcoming: []
+    },
+    C: {
+      closes: [
+        { date: "2026-11-02", close: 123.10 },
+        { date: "2026-11-03", close: 122.71 },
+        { date: "2026-11-04", close: 124.74 },
+        { date: "2026-11-05", close: 118.45 },
+        { date: "2026-11-06", close: 119.05 }
+      ],
+      latest: null,
+      priceSource: "https://stockanalysis.com/stocks/c/history/",
+      news: [
+        { date: "2026-10-30", headline: "Citi price target raised to $148.50 from $147 at JPMorgan", source: "TheFly via TipRanks", url: "https://www.tipranks.com/news/the-fly/citi-price-target-raised-to-148-50-from-147-at-jpmorgan-thefly-news", why: "A JPMorgan analyst kept an Overweight rating and nudged his target up; an analyst opinion, not company news." }
       ],
       upcoming: []
     },
     LLY: {
       closes: [
-        { date: "2026-10-12", close: 100.00 },
-        { date: "2026-10-13", close: 98.70 },
-        { date: "2026-10-14", close: 99.60 },
-        { date: "2026-10-15", close: 101.30 },
-        { date: "2026-10-16", close: 102.90 }
+        { date: "2026-11-02", close: 1410.99 },
+        { date: "2026-11-03", close: 1409.38 },
+        { date: "2026-11-04", close: 1417.99 },
+        { date: "2026-11-05", close: 1364.73 },
+        { date: "2026-11-06", close: 1354.00 }
       ],
       latest: null,
-      priceSource: "https://example.com/sample",
+      priceSource: "https://stockanalysis.com/stocks/lly/history/",
       news: [
-        { date: "2026-10-16", headline: "Sample headline. Run the refresh-brief agent to replace this.", source: "Sample", url: "https://example.com/sample", why: "Sample." }
+        { date: "2026-11-06", headline: "Lilly and Hims & Hers expand access to FDA-approved Lilly medicines", source: "PR Newswire", url: "https://www.prnewswire.com/news-releases/lilly-and-hims--hers-expand-access-to-fda-approved-lilly-medicines-302931979.html", why: "Adds a telehealth channel for Zepbound and Foundayo at self-pay prices, widening patient access." }
       ],
       upcoming: [
-        { date: "2026-10-30", event: "Sample event (replace by refreshing)", source: "Sample", url: "https://example.com/sample" }
+        { date: "2026-11-13", event: "Ex-dividend date, $1.73 per share (record Nov 13, payable Dec 10)", source: "StockAnalysis", url: "https://stockanalysis.com/stocks/lly/dividend/" }
       ]
     }
   }
 };
 
 const CHANGELOG = [
+  {
+    date: "2026-11-06",
+    summary: [
+      "NVDA 202.06 to 186.64 (-7.6%) on the AI and chip selloff after the midterms",
+      "JPM 340.58 to 334.49 (-1.8%) on a planned Senate probe of its Epstein ties",
+      "ACN 260.94 to 260.50 (-0.2%) on an FT report of false citations in an AI paper",
+      "C 123.10 to 119.05 (-3.3%) on no major company news (only an analyst target raise, Oct 30)",
+      "LLY 1410.99 to 1354.00 (-4.0%) on the Hims & Hers access deal for Zepbound and Foundayo",
+      "Removed the stale sample DE entry; added C (Citigroup). Mode changed from sample to live.",
+      "Calendar added: NVDA earnings Nov 17 and proposed House briefing Nov 18, LLY ex-dividend Nov 13, CPI Nov 10 (market-wide, listed under JPM).",
+      "Missing: no upcoming items found for ACN (next earnings Dec 17 is outside the window) or C (no confirmed event in the window). ACN and C have one or zero news items; extra items were not opened.",
+      "Missing: JPM news limited to one opened item; Business Wire 10-Q page for Nov 3 was not opened. Mondelez/Accenture Business Wire page returned 403 and was not used."
+    ],
+    note: "Verify by hand: NVDA Nov 17 earnings date was not confirmed on NVIDIA's IR page. CPI Nov 10 comes from a third-party calendar, not BLS (BLS pages returned errors). All closes come from stockanalysis.com (secondary source). retrievedAt time (8:00 PM ET) is approximate, set after the page's 7:59 PM after-hours stamp. The C news item is an analyst target change dated Oct 30, the edge of the seven-day window."
+  },
   {
     date: "2026-10-16",
     summary: [
